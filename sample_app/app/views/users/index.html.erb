@@ -3,6 +3,14 @@
 
 <%= will_paginate %>
 
+<!-- モデルに基づかないform検索 -->
+<%= form_tag(users_path,method: :get) do %>
+	<%= label_tag :search_name %>
+	<%= text_field_tag :search %>
+
+	<%= submit_tag "Search start",class: "btn btn-primary" %>
+<% end %>
+
 <ul class="users">
   <%= render @users %>
 </ul>
