@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
         @feed_items = Micropost.paginate(page: params[:page])
                       .where('content LIKE?',"%#{params[:search]}%")
         if @feed_items.count == 0
-          flash[:info] = "Not find."
+          flash.now[:info] = "Not find."
           @feed_items = current_user.feed.paginate(page: params[:page])
         end
       else

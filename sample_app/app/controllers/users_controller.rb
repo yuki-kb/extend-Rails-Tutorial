@@ -10,7 +10,7 @@ class UsersController < ApplicationController
                     .paginate(page: params[:page])
                     .where('name LIKE?',"%#{params[:search]}%")
       if @users.count == 0
-        flash[:info] = "Not find."
+        flash.now[:info] = "Not find."
         @users = User.where(activated: true,)
                   .paginate(page: params[:page])
       end
